@@ -73,7 +73,7 @@ CMD ["mysqld","--character-set-server=utf8", "--collation-server=utf8_general_ci
 ```
 => mysql:8.2 이미지를 기반으로 컨테이너를 생성하며, 초기 데이터베이스를 설정하기 위해 Dump20240126.sql 파일을 복사합니다.
 
-## ./APIServer/aspnetapp/Dockerfile
+## ./APIServer/Dockerfile
 ```dockerfile
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 
@@ -96,7 +96,7 @@ ENTRYPOINT ["dotnet", "APIServer.dll"]
 
 *.csproj 만 복사하고 dotnet restore을 하는 이유는 csproj 파일이 변경되지 않았을 경우, 캐시를 사용하여 빌드 시간을 단축하기 위함입니다.
 
-## ./APIServer/aspnetapp/appsettings.json
+## ./APIServer/appsettings.json
 ``` json
 {
   "AllowedHosts": "*",
